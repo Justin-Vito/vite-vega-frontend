@@ -5,8 +5,8 @@ import axios from "axios";
 // const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5003";
 //const API_URL = "https://3.105.228.252:5003"; // Hardcode for now
 //console.log("API_URL in use:", API_URL);
-const API_URL = "/api"; // Relative path
-
+axios.post("/api/residents/signup", residentData); // Direct path
+console.log("Sending to: /api/residents/signup");
 
 
 const SignUp = () => {
