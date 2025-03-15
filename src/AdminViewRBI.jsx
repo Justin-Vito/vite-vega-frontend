@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import HeaderAdmin from "./HeaderAdmin";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5003";
+console.log("API_URL:", API_URL); // Debug
+
 const AdminViewRBI = () => {
   const [residents, setResidents] = useState([]);
   const [error, setError] = useState("");
@@ -9,7 +12,7 @@ const AdminViewRBI = () => {
   useEffect(() => {
     const fetchResidents = async () => {
       try {
-        const response = await axios.get("http://localhost:5003/api/residents", {
+        const response = await axios.get(`${API_URL}/api/residents`, {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         });
         setResidents(response.data);
@@ -23,7 +26,7 @@ const AdminViewRBI = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5003/api/residents/${id}`, {
+      await axios.delete(`${API_URL}/api/residents/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setResidents(residents.filter((resident) => resident.resident_id !== id));

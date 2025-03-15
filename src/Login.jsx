@@ -2,6 +2,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5003";
+console.log("API_URL:", API_URL); // Debug
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,7 +21,7 @@ const Login = () => {
     const endpoint = role === "residents" ? "/api/residents/login" : "/api/admins/login";
 
     try {
-      const response = await axios.post(`http://localhost:5003${endpoint}`, { email, password });
+      const response = await axios.post(`${API_URL}${endpoint}`, { email, password });
       const { token, role: userRole } = response.data;
       localStorage.setItem("token", token);
       if (userRole === "admin") navigate("/admin");

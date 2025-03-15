@@ -2,6 +2,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5003";
+console.log("API_URL:", API_URL); // Debug
+
 const SignUp = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -42,12 +45,12 @@ const SignUp = () => {
     };
   
     try {
-      const response = await axios.post("http://localhost:5003/api/residents/signup", residentData);
+      const response = await axios.post(`${API_URL}/api/residents/signup`, residentData);
       console.log("Sign-up response:", response.data);
       setSuccess("Sign-up successful! Redirecting to login...");
       setTimeout(() => navigate("/login"), 2000);
     } catch (err) {
-      console.error("Signup error details:", err.response ? err.response.data : err.message); // Enhanced logging
+      console.error("Signup error details:", err.response ? err.response.data : err.message);
       setError("Failed to sign up. " + (err.response?.data?.message || "Please try again."));
     }
   };
