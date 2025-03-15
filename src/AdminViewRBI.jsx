@@ -13,7 +13,6 @@ const AdminViewRBI = () => {
     const fetchResidents = async () => {
       try {
         const response = await axios.get(`${API_URL}/api/residents`, {
-        const response = await axios.get(`${API_URL}/api/residents`, {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         });
         setResidents(response.data);
@@ -27,7 +26,6 @@ const AdminViewRBI = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${API_URL}/api/residents/${id}`, {
       await axios.delete(`${API_URL}/api/residents/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });

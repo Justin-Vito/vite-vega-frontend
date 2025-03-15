@@ -46,7 +46,6 @@ const SignUp = () => {
   
     try {
       const response = await axios.post(`${API_URL}/api/residents/signup`, residentData);
-      const response = await axios.post(`${API_URL}/api/residents/signup`, residentData);
       console.log("Sign-up response:", response.data);
       setSuccess("Sign-up successful! Redirecting to login...");
       setTimeout(() => navigate("/login"), 2000);

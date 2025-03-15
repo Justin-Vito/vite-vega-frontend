@@ -29,7 +29,6 @@ const AdminAddInhabitant = () => {
   };
 
   const handleSubmit = async (e) => {
-  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const residentData = {
