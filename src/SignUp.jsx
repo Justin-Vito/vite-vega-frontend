@@ -2,8 +2,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5003";
-console.log("API_URL:", API_URL); // Debug
+// const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5003";
+const API_URL = "https://3.105.228.252:5003"; // Hardcode for now
+console.log("API_URL in use:", API_URL);
 
 const SignUp = () => {
   const navigate = useNavigate();
