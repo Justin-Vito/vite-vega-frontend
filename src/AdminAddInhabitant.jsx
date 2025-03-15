@@ -2,6 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import HeaderAdmin from "./HeaderAdmin";
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5003";
+
 const AdminAddInhabitant = () => {
   const [formData, setFormData] = useState({
     lastName: "",
@@ -25,7 +27,7 @@ const AdminAddInhabitant = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => { // Added 'async' here
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const residentData = {
@@ -47,7 +49,7 @@ const AdminAddInhabitant = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5003/api/residents",
+        `${API_URL}/api/residents`,
         residentData,
         { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
