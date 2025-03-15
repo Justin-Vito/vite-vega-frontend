@@ -1,8 +1,0 @@
-{
-    "rewrites": [
-      {
-        "source": "/api/residents/signup",
-        "destination": "http://3.105.228.252:5003/api/residents/signup"
-      }
-    ]
-  }
