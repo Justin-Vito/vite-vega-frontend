@@ -22,6 +22,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(`${API_URL}${endpoint}`, { email, password });
+      const response = await axios.post(`${API_URL}${endpoint}`, { email, password });
       const { token, role: userRole } = response.data;
       localStorage.setItem("token", token);
       if (userRole === "admin") navigate("/admin");

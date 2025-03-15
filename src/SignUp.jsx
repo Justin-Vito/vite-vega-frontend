@@ -46,10 +46,12 @@ const SignUp = () => {
   
     try {
       const response = await axios.post(`${API_URL}/api/residents/signup`, residentData);
+      const response = await axios.post(`${API_URL}/api/residents/signup`, residentData);
       console.log("Sign-up response:", response.data);
       setSuccess("Sign-up successful! Redirecting to login...");
       setTimeout(() => navigate("/login"), 2000);
     } catch (err) {
+      console.error("Signup error details:", err.response ? err.response.data : err.message);
       console.error("Signup error details:", err.response ? err.response.data : err.message);
       setError("Failed to sign up. " + (err.response?.data?.message || "Please try again."));
     }

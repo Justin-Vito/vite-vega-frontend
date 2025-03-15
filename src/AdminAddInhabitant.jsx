@@ -29,6 +29,7 @@ const AdminAddInhabitant = () => {
   };
 
   const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const residentData = {
@@ -50,6 +51,7 @@ const AdminAddInhabitant = () => {
 
     try {
       const response = await axios.post(
+        `${API_URL}/api/residents`,
         `${API_URL}/api/residents`,
         residentData,
         { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }

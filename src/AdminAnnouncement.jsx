@@ -16,6 +16,7 @@ const AdminAnnouncement = () => {
     try {
       const response = await axios.post(
         `${API_URL}/api/admins/announcements`,
+        `${API_URL}/api/admins/announcements`,
         { title, content },
         { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
