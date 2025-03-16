@@ -20,7 +20,6 @@ const AdminViewAppointments = () => {
 
   return (
     <div className="h-screen flex flex-col">
-      <HeaderAdmin />
       <div className="flex-grow flex items-center justify-center bg-gray-100">
         {error ? (
           <p className="text-red-500">{error}</p>

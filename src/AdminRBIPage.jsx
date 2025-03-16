@@ -2,16 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 const AdminRBIPage = () => {
   const navigate = useNavigate();
-  router.delete('/:id', authenticateToken, async (req, res) => {
-    try {
-      const resident = await Resident.findByPk(req.params.id);
-      if (!resident) return res.status(404).json({ message: 'Resident not found' });
-      await resident.destroy();
-      res.json({ message: 'Resident deleted' });
-    } catch (error) {
-      res.status(500).json({ message: error.message });
-    }
-  });
+ 
   
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
