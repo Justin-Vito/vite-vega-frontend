@@ -15,6 +15,13 @@ import AdminRBIPage from "./AdminRBIPage";
 import AdminViewRBI from "./AdminViewRBI";
 import AdminAddInhabitant from "./AdminAddInhabitant";
 import ResidentsPage from "./ResidentsPage";
+import AdminAnnouncement from "./AdminAnnouncement";
+import AdminCreateOfficial from "./AdminCreateOfficial";
+import AnnouncementsPage from "./AnnouncementsPage";
+import OfficialsAnnouncements from "./OfficialsAnnouncements";
+import AdminViewAppointments from "./AdminViewAppointments";
+import ResidentsAppointment from "./ResidentsAppointment";
+
 
 function App() {
   useEffect(() => {
@@ -48,15 +55,24 @@ function App() {
           {/* Officials Routes */}
           <Route path="/officials" element={<OfficialsHomePage />} />
           <Route path="/officials/rbi" element={<OfficialsPage />} />
+          <Route path="/officials/announcements" element={<OfficialsAnnouncements />} />
+
 
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminHomePage />} />
           <Route path="/admin/rbi" element={<AdminRBIPage />} />
           <Route path="/admin/rbi/view" element={<AdminViewRBI />} />
           <Route path="/admin/rbi/add" element={<AdminAddInhabitant />} />
+          <Route path="/admin/announcement" element={<AdminAnnouncement />} />
+          <Route path="/admin/create-official" element={<AdminCreateOfficial />} />
+          <Route path="/admin/appointments" element={<AdminViewAppointments />} />
+
+
 
           {/* Residents Route */}
           <Route path="/residents" element={<ResidentsPage />} />
+          <Route path="/announcements" element={<AnnouncementsPage />} />
+          <Route path="/residents/appointment" element={<ResidentsAppointment />} />
         </Routes>
       </div>
     </div>

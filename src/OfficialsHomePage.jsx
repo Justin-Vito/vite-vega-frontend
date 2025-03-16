@@ -20,10 +20,12 @@ const OfficialsHomePage = () => {
 
           {/* Announcements Button (Does Nothing for Now) */}
           <button 
-            className="btn bg-gray-500 text-white px-6 py-3 rounded-lg shadow-md"
-          >
-            Announcements
-          </button>
+  onClick={() => navigate("/officials/announcements")} 
+  className="btn bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md"
+>
+  Announcements
+</button>
+
         </div>
       </div>
     </div>

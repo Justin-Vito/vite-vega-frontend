@@ -33,33 +33,39 @@ const AdminAnnouncement = () => {
 
   return (
     <div className="h-screen flex flex-col">
-      <div className="flex-grow p-6">
-        <h1 className="text-3xl font-bold mb-4">Make Announcement</h1>
+
+      <div className="flex-grow flex flex-col items-center justify-center p-6">
+        <h1 className="text-2xl font-bold mb-4">Create Announcement</h1>
         {success && <p className="text-green-600 mb-4">{success}</p>}
         {error && <p className="text-red-600 mb-4">{error}</p>}
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            className="input input-bordered w-full mb-4"
-            required
-          />
-          <textarea
-            placeholder="Content"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            className="textarea textarea-bordered w-full mb-4"
-            required
-          />
-          <button type="submit" className="btn bg-blue-600 text-white">
-            Post Announcement
-          </button>
-        </form>
+        
+        {/* Title Input */}
+        <input
+          type="text"
+          className="input input-bordered w-full max-w-2xl mb-4"
+          placeholder="Title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+
+        {/* Content Textarea */}
+        <textarea
+          className="textarea textarea-bordered w-full max-w-2xl h-40"
+          placeholder="Write your announcement here..."
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+        />
+        
+        <button 
+          onClick={handleSubmit}
+          className="btn bg-blue-600 text-white mt-4 px-6 py-2"
+        >
+          Publish Announcement
+        </button>
       </div>
     </div>
   );
 };
+
 
 export default AdminAnnouncement;
