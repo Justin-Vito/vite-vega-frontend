@@ -22,6 +22,8 @@ const AdminAddInhabitant = () => {
     address: "",
     occupation: "",
     estadoSaBuhay: "",
+    email: "", // Added email field
+
   });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -48,6 +50,8 @@ const AdminAddInhabitant = () => {
       status: formData.estadoSaBuhay,
       household_id: 1, // Placeholder; adjust as needed
       contact_num: "N/A", // Placeholder; add to form if needed
+      email: formData.email, // From form input
+      password: "default", // Placeholder—backend hashes it
     };
 
     try {
@@ -77,6 +81,7 @@ const AdminAddInhabitant = () => {
         address: "",
         occupation: "",
         estadoSaBuhay: "",
+        email: "", // Reset email
       });
     } catch (err) {
       console.error("Error adding inhabitant:", err.response?.data || err);
@@ -109,6 +114,7 @@ const AdminAddInhabitant = () => {
                   <th>Address</th>
                   <th>Occupation</th>
                   <th>Estado sa Buhay</th>
+                  <th> Email </th>
                 </tr>
               </thead>
               <tbody>
@@ -140,6 +146,8 @@ const AdminAddInhabitant = () => {
                   <td><input type="text" name="address" value={formData.address} className="input input-bordered w-full" onChange={handleChange} required /></td>
                   <td><input type="text" name="occupation" value={formData.occupation} className="input input-bordered w-full" onChange={handleChange} required /></td>
                   <td><input type="text" name="estadoSaBuhay" value={formData.estadoSaBuhay} className="input input-bordered w-full" onChange={handleChange} required /></td>
+                  <td><input type="email" name="email" value={formData.email} className="input input-bordered w-full" onChange={handleChange} required /></td> {/* Added Email input */}
+
                 </tr>
               </tbody>
             </table>
