@@ -1,10 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
 import HeaderAdmin from "./HeaderAdmin";
+import https from 'https'; // For cert workaround
 
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5003";
 console.log("API_URL:", API_URL); // Debug
+const agent = new https.Agent({ rejectUnauthorized: false }); // Ignore self-signed cert
+
 
 const AdminAddInhabitant = () => {
   const [formData, setFormData] = useState({
