@@ -13,7 +13,10 @@ const OfficialsAnnouncements = () => {
 
   const fetchAnnouncements = async () => {
     try {
-      const response = await axios.get("https://3.105.228.252:5003/api/officials/announcements");
+      const token = localStorage.getItem("token");
+      const response = await axios.get("https://3.105.228.252:5003/api/officials/announcements", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       setAnnouncements(response.data);
     } catch (err) {
       setError("Failed to load: " + (err.response?.data?.message || err.message));
@@ -27,13 +30,17 @@ const OfficialsAnnouncements = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://3.105.228.252:5003/api/officials/announcements", formData);
+      const token = localStorage.getItem("token");
+      await axios.post("https://3.105.228.252:5003/api/officials/announcements", formData, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       setFormData({ title: "", content: "" });
       fetchAnnouncements();
     } catch (err) {
       setError("Failed to post: " + (err.response?.data?.message || err.message));
     }
   };
+
 
   return (
     <div className="h-screen flex flex-col">

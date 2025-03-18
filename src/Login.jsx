@@ -18,19 +18,24 @@ const Login = () => {
       return;
     }
 
-    const endpoint = role === "residents" ? "/api/residents/login" : "/api/admins/login";
+    const endpoints = {
+      residents: "/api/residents/login",
+      admin: "/api/admins/login", // Match select value
+      officials: "/api/officials/login",
+    };
 
     try {
-      const response = await axios.post(`${API_URL}${endpoint}`, { email, password });
-      const { token, role: userRole } = response.data;
+      const response = await axios.post(`${API_URL}${endpoints[role]}`, { email, password });
+      const { token, role: userRole } = response.data; // Backend sends 'role'
       localStorage.setItem("token", token);
-      if (userRole === "admin") navigate("/admin");
+      console.log("Login success:", { token, userRole });
+      if (userRole === "admins") navigate("/admin");
       else if (userRole === "officials") navigate("/officials");
       else if (userRole === "residents") navigate("/residents");
       else setError("Unknown role returned from server.");
     } catch (err) {
       setError("Invalid credentials. " + (err.response?.data?.message || "Please try again."));
-      console.error(err);
+      console.error("Login error:", err.response?.data || err.message);
     }
   };
 
