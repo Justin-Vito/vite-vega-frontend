@@ -103,7 +103,7 @@ const ResidentsPage = () => {
             Create Appointment
           </button>
           <button 
-            onClick={() => navigate("/announcements")}
+            onClick={() => navigate("residents/announcements")}
             className="btn bg-blue-600 text-white w-full"
           >
             View Announcements
