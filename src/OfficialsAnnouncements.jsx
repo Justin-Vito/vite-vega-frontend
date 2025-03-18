@@ -5,6 +5,7 @@ import HeaderOfficials from "./HeaderOfficials";
 const OfficialsAnnouncements = () => {
   const [announcements, setAnnouncements] = useState([]);
   const [formData, setFormData] = useState({ title: "", content: "" });
+  const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -35,6 +36,8 @@ const OfficialsAnnouncements = () => {
         headers: { Authorization: `Bearer ${token}` },
       });
       setFormData({ title: "", content: "" });
+      setSuccess("Announcement posted!");
+      setTimeout(() => setSuccess(""), 2000);
       fetchAnnouncements();
     } catch (err) {
       setError("Failed to post: " + (err.response?.data?.message || err.message));
@@ -44,7 +47,7 @@ const OfficialsAnnouncements = () => {
 
   return (
     <div className="h-screen flex flex-col">
-      <div className="flex-grow flex justify-center items-center">
+        <div className="flex-grow flex justify-center items-center">
         <div className="w-full max-w-lg">
           <form onSubmit={handleSubmit} className="bg-white p-4 rounded shadow mb-4">
             <input
@@ -65,6 +68,7 @@ const OfficialsAnnouncements = () => {
               Post Announcement
             </button>
           </form>
+          {success && <p className="text-green-500 mb-4">{success}</p>}
           {error && <p className="text-red-500 mb-4">{error}</p>}
           {announcements.length ? (
             <ul className="space-y-4">
@@ -72,6 +76,9 @@ const OfficialsAnnouncements = () => {
                 <li key={ann.id} className="bg-white p-4 rounded shadow">
                   <h2 className="text-xl font-bold">{ann.title}</h2>
                   <p>{ann.content}</p>
+                  <p className="text-gray-500 text-sm">
+                    Posted on: {new Date(ann.createdAt).toLocaleDateString()}
+                  </p>
                 </li>
               ))}
             </ul>
