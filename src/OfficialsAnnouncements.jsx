@@ -44,7 +44,6 @@ const OfficialsAnnouncements = () => {
 
   return (
     <div className="h-screen flex flex-col">
-      <HeaderOfficials />
       <div className="flex-grow flex justify-center items-center">
         <div className="w-full max-w-lg">
           <form onSubmit={handleSubmit} className="bg-white p-4 rounded shadow mb-4">
