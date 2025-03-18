@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import HeaderAdmin from "./HeaderAdmin";
 
+
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5003";
 console.log("API_URL:", API_URL); // Debug
 
@@ -49,11 +50,14 @@ const AdminAddInhabitant = () => {
     };
 
     try {
+      const token = localStorage.getItem("token");
       const response = await axios.post(
         `${API_URL}/api/residents`,
-        `${API_URL}/api/residents`,
-        residentData,
-        { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
+        residentData, // Fixed: data here
+        {
+          headers: { Authorization: `Bearer ${token}` },
+          httpsAgent: agent, // Cert workaround
+        }
       );
       console.log("Resident added:", response.data);
       setSuccess("Inhabitant added successfully!");
@@ -74,8 +78,8 @@ const AdminAddInhabitant = () => {
         estadoSaBuhay: "",
       });
     } catch (err) {
-      console.error("Error adding inhabitant:", err);
-      setError("Failed to add inhabitant. Please try again.");
+      console.error("Error adding inhabitant:", err.response?.data || err);
+      setError("Failed to add inhabitant: " + (err.response?.data?.message || "Please try again."));
       setSuccess("");
     }
   };
