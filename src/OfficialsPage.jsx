@@ -9,12 +9,13 @@ const OfficialsPage = () => {
   useEffect(() => {
     const fetchResidents = async () => {
       try {
-        const response = await axios.get("http://localhost:5003/api/residents", {
-          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        const token = localStorage.getItem("token");
+        const response = await axios.get("https://3.105.228.252:5003/api/residents", {
+          headers: { Authorization: `Bearer ${token}` },
         });
         setResidents(response.data);
       } catch (err) {
-        setError("Failed to load residents.");
+        setError("Failed to load residents: " + (err.response?.data?.message || err.message));
         console.error(err);
       }
     };
