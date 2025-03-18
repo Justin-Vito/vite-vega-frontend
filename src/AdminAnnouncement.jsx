@@ -15,6 +15,8 @@
       e.preventDefault();
       try {
         const token = localStorage.getItem("token");
+        console.log("Token being sent:", token); // Debug
+        if (!token) throw new Error("No token—log in again.");
         const response = await axios.post(
           `${API_URL}/api/admins/announcements`,
           { title, content },
