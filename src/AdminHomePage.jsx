@@ -13,12 +13,11 @@ const AdminHomePage = () => {
         //  backgroundImage: "url('/images/adminBG.jpg')", // Local from public/
            backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80')", // URL fallback
           opacity: 0.5, // Bump to 0.5 to test visibility
-          zIndex: -1, // Behind content
         }}
       ></div>
  {/* Card Container */}
 {/* Content: Title and Buttons in a Card */}
-      <div className="absolute top-1/2 left-2/3 transform -translate-y-1/2 card w-80 bg-white bg-opacity-90 shadow-xl p-6">
+      <div className="absolute top-1/2 left-2/3 transform -translate-y-1/2 card w-80 bg-white bg-opacity-90 shadow-xl p-6 z-10">
       {/* Content */}
       <h1 className="text-3xl font-bold mb-6 text-gray-800 text-center">Admin Dashboard</h1>
 
