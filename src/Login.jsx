@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import LoginImg from "./images/login.jpg"; // Adjust the path if needed
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5003";
 console.log("API_URL:", API_URL); // Debug
@@ -40,7 +41,15 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
+    <div
+      className="flex justify-center items-center h-screen"
+      style={{
+        backgroundImage: `url(${LoginImg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <div className="bg-white p-8 rounded-lg shadow-md w-96 text-center">
         <h1 className="text-2xl font-bold mb-4">Barangay Batasan Hills Website</h1>
         <p className="text-gray-600 mb-6">Enter your credentials:</p>
