@@ -9,7 +9,7 @@ const AdminHomePage = () => {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url('https://cocities.designforcommons.org/wp-content/uploads/sites/29/2017/07/barangay.jpg')", // Replace with your image URL
+          backgroundImage: "url('/images/adminBG.jpg')", // Replace with your image URL
           opacity: 0.3, // Adjust opacity here (0.0 to 1.0)
           zIndex: -1, // Keeps it behind content
         }}
