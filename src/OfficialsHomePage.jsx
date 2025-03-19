@@ -1,31 +1,40 @@
 import { useNavigate } from "react-router-dom";
-import HeaderOfficials from "./HeaderOfficials"; // ✅ Import the correct header
+import HeaderOfficials from "./HeaderOfficials"; // Imported header
+import OfficialsImg from "./images/officials.jpg"; // Import the local background image
 
 const OfficialsHomePage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="h-screen flex flex-col">
-      <div className="flex-grow flex flex-col justify-center items-center bg-gray-100">
-        <h1 className="text-3xl font-bold mb-6">Officials Home Page</h1>
+    <div className="relative h-screen">
+      {/* Background Image Layer with 0.5 opacity */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${OfficialsImg})`,
+          opacity: 0.5,
+        }}
+      ></div>
 
-        <div className="flex gap-4">
-          {/* To RBI Button -> Navigates to OfficialsPage */}
-          <button 
-            onClick={() => navigate("/officials/rbi")} 
-            className="btn bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md"
-          >
-            To RBI
-          </button>
-
-          {/* Announcements Button (Does Nothing for Now) */}
-          <button 
-  onClick={() => navigate("/officials/announcements")} 
-  className="btn bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md"
->
-  Announcements
-</button>
-
+      {/* Content Layer */}
+      <div className="relative h-full flex flex-col">
+        <HeaderOfficials />
+        <div className="flex-grow flex flex-col justify-center items-center">
+          <h1 className="text-3xl font-bold mb-6">Officials Home Page</h1>
+          <div className="flex gap-4">
+            <button
+              onClick={() => navigate("/officials/rbi")}
+              className="btn bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md"
+            >
+              To RBI
+            </button>
+            <button
+              onClick={() => navigate("/officials/announcements")}
+              className="btn bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md"
+            >
+              Announcements
+            </button>
+          </div>
         </div>
       </div>
     </div>
