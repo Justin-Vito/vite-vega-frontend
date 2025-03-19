@@ -2,17 +2,15 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import HeaderAdmin from "./HeaderAdmin";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5003";
-console.log("API_URL:", API_URL); // Debug
-
 const AdminViewRBI = () => {
   const [residents, setResidents] = useState([]);
   const [error, setError] = useState("");
+  const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
 
   useEffect(() => {
     const fetchResidents = async () => {
       try {
-        const response = await axios.get(`${API_URL}/api/residents`, {
+        const response = await axios.get("http://localhost:5003/api/residents", {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         });
         setResidents(response.data);
@@ -26,7 +24,7 @@ const AdminViewRBI = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${API_URL}/api/residents/${id}`, {
+      await axios.delete(`http://localhost:5003/api/residents/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setResidents(residents.filter((resident) => resident.resident_id !== id));
@@ -34,6 +32,31 @@ const AdminViewRBI = () => {
       setError("Failed to delete resident.");
       console.error(err);
     }
+  };
+
+  // Sorting function
+  const handleSort = (key) => {
+    let direction = "asc";
+    if (sortConfig.key === key && sortConfig.direction === "asc") {
+      direction = "desc";
+    }
+    setSortConfig({ key, direction });
+
+    const sortedResidents = [...residents].sort((a, b) => {
+      if (key === "age") {
+        return direction === "asc" ? a.age - b.age : b.age - a.age;
+      }
+      if (key === "gender") {
+        return direction === "asc"
+          ? a.gender.localeCompare(b.gender)
+          : b.gender.localeCompare(a.gender);
+      }
+      return direction === "asc"
+        ? a[key].toString().localeCompare(b[key].toString())
+        : b[key].toString().localeCompare(a[key].toString());
+    });
+
+    setResidents(sortedResidents);
   };
 
   return (
@@ -45,14 +68,30 @@ const AdminViewRBI = () => {
           <table className="table table-zebra w-full border">
             <thead>
               <tr className="bg-gray-200 text-left">
-                <th>Last Name</th>
-                <th>First Name</th>
+                <th>
+                  <button onClick={() => handleSort("last_name")} className="text-blue-500">
+                    Last Name ⬍
+                  </button>
+                </th>
+                <th>
+                  <button onClick={() => handleSort("first_name")} className="text-blue-500">
+                    First Name ⬍
+                  </button>
+                </th>
                 <th>Middle Initial</th>
                 <th>EXT</th>
                 <th>Place of Birth</th>
                 <th>Date of Birth</th>
-                <th>Age</th>
-                <th>Sex</th>
+                <th>
+                  <button onClick={() => handleSort("age")} className="text-blue-500">
+                    Age ⬍
+                  </button>
+                </th>
+                <th>
+                  <button onClick={() => handleSort("gender")} className="text-blue-500">
+                    Sex ⬍
+                  </button>
+                </th>
                 <th>Civil Status</th>
                 <th>Citizenship</th>
                 <th>Address</th>
