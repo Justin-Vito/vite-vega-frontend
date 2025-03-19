@@ -4,10 +4,10 @@ const AdminHomePage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="relative flex flex-col items-center justify-center h-screen">
+    <div className="flex flex-col items-center justify-center h-screen bg-white">
       {/* Background Image with Opacity */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="w-3/4 h-3/4 bg-cover bg-center rounded-lg shadow-lg"
         style={{
           // Try local first, comment out URL if testing local
         //  backgroundImage: "url('/images/adminBG.jpg')", // Local from public/
@@ -17,9 +17,10 @@ const AdminHomePage = () => {
         }}
       ></div>
  {/* Card Container */}
-      <div className="card w-96 bg-white bg-opacity-90 shadow-xl p-6">
+{/* Content: Title and Buttons in a Card */}
+      <div className="absolute top-1/2 left-2/3 transform -translate-y-1/2 card w-80 bg-white bg-opacity-90 shadow-xl p-6">
       {/* Content */}
-      <h1 className="text-3xl font-bold mb-6 text-white drop-shadow-md">Admin Dashboard</h1>
+      <h1 className="text-3xl font-bold mb-6 text-gray-800 text-center">Admin Dashboard</h1>
 
       {/* Button Container with Spacing */}
       <div className="flex flex-col space-y-4 w-64">
