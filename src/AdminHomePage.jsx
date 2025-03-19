@@ -7,7 +7,7 @@ const AdminHomePage = () => {
     <div className="flex flex-col items-center justify-center h-screen bg-white">
       {/* Background Image with Opacity */}
       <div
-        className="w-3/4 h-3/4 bg-cover bg-center rounded-lg shadow-lg"
+        className="relative w-3/4 h-3/4 bg-cover bg-center rounded-lg shadow-lg z-0"
         style={{
           // Try local first, comment out URL if testing local
         //  backgroundImage: "url('/images/adminBG.jpg')", // Local from public/
