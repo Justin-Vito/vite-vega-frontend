@@ -48,6 +48,7 @@ const Login = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
+        opacity: 0.5,
       }}
     >
       <div className="bg-white p-8 rounded-lg shadow-md w-96 text-center">
