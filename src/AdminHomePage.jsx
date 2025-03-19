@@ -11,7 +11,7 @@ const AdminHomePage = () => {
         style={{
           // Try local first, comment out URL if testing local
         //  backgroundImage: "url('/images/adminBG.jpg')", // Local from public/
-           backgroundImage: "url('blob:https://www.messenger.com/ca45a15a-7627-483a-88c1-aacfa492fdcb')", // URL fallback
+           backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80')", // URL fallback
           opacity: 0.5, // Bump to 0.5 to test visibility
         }}
       ></div>
