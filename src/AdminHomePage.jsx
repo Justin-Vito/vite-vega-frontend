@@ -4,14 +4,16 @@ const AdminHomePage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="relative flex flex-col items-center justify-center h-screen bg-gray-100">
+    <div className="relative flex flex-col items-center justify-center h-screen">
       {/* Background Image with Opacity */}
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url('/images/adminBG.jpg')", // Replace with your image URL
-          opacity: 0.3, // Adjust opacity here (0.0 to 1.0)
-          zIndex: -1, // Keeps it behind content
+          // Try local first, comment out URL if testing local
+          backgroundImage: "url('/images/adminBG.jpg')", // Local from public/
+          // backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80')", // URL fallback
+          opacity: 0.5, // Bump to 0.5 to test visibility
+          zIndex: -1, // Behind content
         }}
       ></div>
 
