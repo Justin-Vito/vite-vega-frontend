@@ -21,13 +21,13 @@ const Login = () => {
 
     const endpoints = {
       residents: "/api/residents/login",
-      admin: "/api/admins/login", // Match select value
+      admin: "/api/admins/login",
       officials: "/api/officials/login",
     };
 
     try {
       const response = await axios.post(`${API_URL}${endpoints[role]}`, { email, password });
-      const { token, role: userRole } = response.data; // Backend sends 'role'
+      const { token, role: userRole } = response.data;
       localStorage.setItem("token", token);
       console.log("Login success:", { token, userRole });
       if (userRole === "admins") navigate("/admin");
@@ -41,48 +41,50 @@ const Login = () => {
   };
 
   return (
-    <div
-      className="flex justify-center items-center h-screen"
-      style={{
-        backgroundImage: `url(${LoginImg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        opacity: 0.5,
-        zIndex: -1,
-      }}
-    >
-      <div className="bg-white p-8 rounded-lg shadow-md w-96 text-center">
-        <h1 className="text-2xl font-bold mb-4">Barangay Batasan Hills Website</h1>
-        <p className="text-gray-600 mb-6">Enter your credentials:</p>
-        {error && <p className="text-red-600 mb-4">{error}</p>}
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="input input-bordered w-full mb-4"
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="input input-bordered w-full mb-4"
-        />
-        <select
-          value={role}
-          onChange={(e) => setRole(e.target.value)}
-          className="select select-bordered w-full mb-4"
-        >
-          <option value="">Select Role</option>
-          <option value="admin">Admin</option>
-          <option value="officials">Officials</option>
-          <option value="residents">Residents</option>
-        </select>
-        <button onClick={handleLogin} className="btn bg-blue-600 text-white w-full">
-          Login
-        </button>
+    <div className="relative h-screen">
+      {/* Background Image Layer */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${LoginImg})`,
+          opacity: 0.5,
+        }}
+      ></div>
+
+      {/* Content Layer */}
+      <div className="relative flex justify-center items-center h-full">
+        <div className="bg-white p-8 rounded-lg shadow-md w-96 text-center">
+          <h1 className="text-2xl font-bold mb-4">Barangay Batasan Hills Website</h1>
+          <p className="text-gray-600 mb-6">Enter your credentials:</p>
+          {error && <p className="text-red-600 mb-4">{error}</p>}
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="input input-bordered w-full mb-4"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="input input-bordered w-full mb-4"
+          />
+          <select
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
+            className="select select-bordered w-full mb-4"
+          >
+            <option value="">Select Role</option>
+            <option value="admin">Admin</option>
+            <option value="officials">Officials</option>
+            <option value="residents">Residents</option>
+          </select>
+          <button onClick={handleLogin} className="btn bg-blue-600 text-white w-full">
+            Login
+          </button>
+        </div>
       </div>
     </div>
   );
