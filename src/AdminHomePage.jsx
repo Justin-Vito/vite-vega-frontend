@@ -16,7 +16,8 @@ const AdminHomePage = () => {
           zIndex: -1, // Behind content
         }}
       ></div>
-
+ {/* Card Container */}
+      <div className="card w-96 bg-white bg-opacity-90 shadow-xl p-6">
       {/* Content */}
       <h1 className="text-3xl font-bold mb-6 text-white drop-shadow-md">Admin Dashboard</h1>
 
@@ -55,6 +56,7 @@ const AdminHomePage = () => {
         </button>
       </div>
     </div>
+      </div>
   );
 };
 
