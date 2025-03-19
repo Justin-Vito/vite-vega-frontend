@@ -16,24 +16,26 @@ const OfficialsHomePage = () => {
         }}
       ></div>
 
-      {/* Content Layer */}
+      {/* Content Panel */}
       <div className="relative h-full flex flex-col">
         <HeaderOfficials />
-        <div className="flex-grow flex flex-col justify-center items-center">
-          <h1 className="text-3xl font-bold mb-6">Officials Home Page</h1>
-          <div className="flex gap-4">
-            <button
-              onClick={() => navigate("/officials/rbi")}
-              className="btn bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md"
-            >
-              To RBI
-            </button>
-            <button
-              onClick={() => navigate("/officials/announcements")}
-              className="btn bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md"
-            >
-              Announcements
-            </button>
+        <div className="flex-grow flex justify-center items-center">
+          <div className="bg-white p-8 rounded-lg shadow-md text-center">
+            <h1 className="text-3xl font-bold mb-6">Officials Home Page</h1>
+            <div className="flex gap-4">
+              <button
+                onClick={() => navigate("/officials/rbi")}
+                className="btn bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md"
+              >
+                To RBI
+              </button>
+              <button
+                onClick={() => navigate("/officials/announcements")}
+                className="btn bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md"
+              >
+                Announcements
+              </button>
+            </div>
           </div>
         </div>
       </div>
