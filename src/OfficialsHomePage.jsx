@@ -18,7 +18,6 @@ const OfficialsHomePage = () => {
 
       {/* Content Panel */}
       <div className="relative h-full flex flex-col">
-        <HeaderOfficials />
         <div className="flex-grow flex justify-center items-center">
           <div className="bg-white p-8 rounded-lg shadow-md text-center">
             <h1 className="text-3xl font-bold mb-6">Officials Home Page</h1>
