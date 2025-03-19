@@ -24,14 +24,6 @@ const AdminRBIPage = () => {
         >
           Add Inhabitants
         </button>
-
-        {/* Delete Inhabitants Button */}
-        <button
-          onClick={() => navigate("/admin/rbi/delete")}
-          className="btn bg-red-600 text-white w-64"
-        >
-          Delete Inhabitants
-        </button>
       </div>
     </div>
   );
