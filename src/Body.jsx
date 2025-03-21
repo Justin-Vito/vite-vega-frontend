@@ -38,7 +38,7 @@ const Body = () => {
           <div className="grid grid-cols-2 gap-4 mt-3">
             <a 
               href="https://scontent.fmnl3-4.fna.fbcdn.net/v/t1.6435-9/117198424_1529511437228905_9060302834013588511_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGE80ikMVY7LK3IYi24NoEjJC5vVqZedU0kLm9Wpl51TfKFc2y67toA2NT0I2HGdQ22fAhOcig6jv6kjaOdQ2d2&_nc_ohc=IdJmfqhahcMQ7kNvgGNgLmH&_nc_oc=AdjYPjStEi1AvnJMBeqTl5F0vnGAZiC58RqqHNzXLyYnxorBVaVYGduJo3vkzDKK7tk&_nc_zt=23&_nc_ht=scontent.fmnl3-4.fna&_nc_gid=WXFmf01YHeVSCpOxSC2N0g&oh=00_AYFuYya5_KOlqzGhKayKDzDhoe_ovA7a12f79s7h6MHpYQ&oe=67FDF510"
-              className="btn bg-blue-500 text-black w-full py-3 text-sm text-center"
+              className="btn bg-blue-500 text-white w-full py-3 text-sm text-center"
               target="_blank" 
               rel="noopener noreferrer"
             >
@@ -47,7 +47,7 @@ const Body = () => {
 
             <a 
               href="https://mariaaurora.gov.ph/wp-content/uploads/2018/12/ISSUANCE-OF-CERTIFICATE-OF-INDIGENCY-1.pdf"
-              className="btn bg-blue-500 text-black w-full py-3 text-sm text-center"
+              className="btn bg-blue-500 text-white w-full py-3 text-sm text-center"
               target="_blank" 
               rel="noopener noreferrer"
             >
@@ -56,7 +56,7 @@ const Body = () => {
 
             <a 
               href="https://quezoncity.gov.ph/wp-content/uploads/2020/10/Unified-Business-Permit-Application-Form.pdf"
-              className="btn bg-blue-500 text-black w-full py-3 text-sm text-center"
+              className="btn bg-blue-500 text-white w-full py-3 text-sm text-center"
               target="_blank" 
               rel="noopener noreferrer"
             >
@@ -65,7 +65,7 @@ const Body = () => {
 
             <a 
               href="https://didm.pnp.gov.ph/images/Incident%20Record%20Forms/Incident%20Record%20Form.pdf"
-              className="btn bg-blue-500 text-black w-full py-3 text-sm text-center"
+              className="btn bg-blue-500 text-white w-full py-3 text-sm text-center"
               target="_blank" 
               rel="noopener noreferrer"
             >
@@ -80,7 +80,7 @@ const Body = () => {
           <div className="grid grid-cols-2 gap-4 mt-3">
             <a 
               href="https://www.facebook.com/stories/796260775562810/?source=profile_highlight"
-              className="btn bg-blue-500 text-black w-full py-3 text-sm text-center"
+              className="btn bg-blue-500 text-white w-full py-3 text-sm text-center"
               target="_blank" 
               rel="noopener noreferrer"
             >
@@ -89,7 +89,7 @@ const Body = () => {
 
             <a 
               href="https://pepp.emb.gov.ph/wp-content/uploads/2016/06/RA-9003-Ecological-Solid-Waste-Management-Act-of-2000.pdf"
-              className="btn bg-blue-500 text-black w-full py-3 text-sm text-center"
+              className="btn bg-blue-500 text-white w-full py-3 text-sm text-center"
               target="_blank" 
               rel="noopener noreferrer"
             >
@@ -98,7 +98,7 @@ const Body = () => {
 
             <a 
               href="https://web.senate.gov.ph/lisdata/3865235106!.pdf"
-              className="btn bg-blue-500 text-black w-full py-3 text-sm text-center"
+              className="btn bg-blue-500 text-white w-full py-3 text-sm text-center"
               target="_blank" 
               rel="noopener noreferrer"
             >
@@ -107,7 +107,7 @@ const Body = () => {
 
             <a 
               href="https://ndrrmc.gov.ph/attachments/article/4147/NDRRMP-Pre-Publication-Copy-v2.pdf"
-              className="btn bg-blue-500 text-black w-full py-3 text-sm text-center"
+              className="btn bg-blue-500 text-white w-full py-3 text-sm text-center"
               target="_blank" 
               rel="noopener noreferrer"
             >
